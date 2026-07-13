@@ -203,10 +203,10 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 .sheet.open{transform:none}
 .sheet h2{font-weight:700;font-size:19px}
 .sheet .sub{font-weight:400;font-size:13px;color:var(--soft);margin-top:3px}
-.sheet label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin:16px 0 6px}
-.sheet select,.sheet input{width:100%;height:52px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:0 14px;font-family:var(--sans);font-weight:500;font-size:15px;color:var(--ink)}
-.sheet .row2{display:flex;gap:10px}
-.sheet .row2>div{flex:1}
+.sheet label,.engine label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin:16px 0 6px}
+.sheet select,.sheet input,.engine select,.engine input{width:100%;height:52px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:0 14px;font-family:var(--sans);font-weight:500;font-size:15px;color:var(--ink)}
+.sheet .row2,.engine .row2{display:flex;gap:10px}
+.sheet .row2>div,.engine .row2>div{flex:1}
 .sheet .btn{width:100%;margin-top:22px}
 .sheet-privacy{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--soft);margin-top:14px;justify-content:center}
 
@@ -228,6 +228,27 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 .prow .who{flex:1;min-width:0}
 .prow .who b{font-weight:600;font-size:14px;display:block}
 .prow .who span{font-weight:400;font-size:12px;color:var(--soft)}
+
+
+.bellbtn{position:relative;display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:var(--cream);border:1px solid var(--line);flex-shrink:0}
+.bdot{position:absolute;top:9px;right:10px;width:8px;height:8px;border-radius:50%;background:var(--clay)}
+.engine{border-top:2px solid var(--navy);margin-top:22px}
+.engine .row2>div{min-width:0}
+.engine .row2 input{width:100%;min-width:0}
+.engine .btn{width:100%;margin-top:20px}
+.quote{border-top:1px solid var(--line);margin-top:18px;padding-top:16px;display:flex;flex-direction:column;gap:14px}
+.qtotals{display:flex;justify-content:space-between;align-items:flex-end}
+.qtotals .tt{font-family:var(--num);font-weight:600;font-size:30px;letter-spacing:-.02em}
+.qtotals .meta{font-weight:400;font-size:12.5px;color:var(--soft)}
+.earnchip{display:inline-flex;align-items:center;gap:7px;background:var(--mustard-soft);border-radius:100px;padding:8px 14px;font-family:var(--num);font-weight:600;font-size:13px;width:fit-content}
+.quote .btn{margin-top:2px}
+.nrow{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.nrow:first-of-type{border-top:none}
+.nrow .nd{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;flex-shrink:0}
+.nrow .who{flex:1;min-width:0}
+.nrow .who b{font-weight:600;font-size:13.5px;display:block}
+.nrow .who span{font-weight:400;font-size:12px;color:var(--soft)}
+.nrow .tm{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--soft);flex-shrink:0;padding-top:2px}
 
 /* ============ TABLET (rail) ============ */
 @media (min-width:760px){
@@ -255,6 +276,16 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
   .sheet{left:50%;right:auto;bottom:50%;transform:translate(-50%,60%) scale(.96);width:440px;border-radius:22px;opacity:0}
   .sheet.open{transform:translate(-50%,50%) scale(1);opacity:1}
   #toast{bottom:48px}
+}
+
+/* ============ WIDE: Book page becomes two columns ============ */
+@media (min-width:900px){
+  #page-bookings .pagewrap{display:grid;grid-template-columns:420px 1fr;column-gap:26px;align-items:start}
+  #page-bookings .pagehead{grid-column:1/-1}
+  #page-bookings .engine{grid-column:1;grid-row:2/span 3}
+  #page-bookings .confirm-card{grid-column:2;margin-top:22px}
+  #page-bookings .seg{grid-column:2}
+  #page-bookings #bookinglist{grid-column:2}
 }
 
 /* ============ DESKTOP (labeled sidebar + choco hero) ============ */
@@ -322,7 +353,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
     </button>
     <button class="navitem" data-tab="bookings">
       <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.5h17M8 3v3.5M16 3v3.5"/></svg>
-      <span>Bookings</span>
+      <span>Book</span>
     </button>
     <button class="navitem" data-tab="properties">
       <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 20.5V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v15.5"/><path d="M15.5 9.5h3a1 1 0 0 1 1 1v10"/><path d="M3.5 20.5h17"/><path d="M8.5 7.5h2M8.5 11h2M8.5 14.5h2"/></svg>
@@ -352,7 +383,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
     <section class="page active" id="page-home"><div class="pagewrap">
       <header class="pagehead">
         <div><h1>Earnings.</h1><p class="sub">Mabuhay, Miguel.</p></div>
-        <img class="pagemark" src="assets/logo/icon-navy.png" alt="">
+        <button class="bellbtn" onclick="openNotifs()" aria-label="Notifications"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2218" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5.5a6 6 0 1 0-12 0V16l-1.8 2.5h15.6z"/><path d="M10 21a2.2 2.2 0 0 0 4 0"/></svg><span class="bdot"></span></button>
       </header>
       <div class="hero">
         <div class="kicker">This month</div>
@@ -394,9 +425,29 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
     <!-- ======== BOOKINGS ======== -->
     <section class="page" id="page-bookings"><div class="pagewrap">
       <header class="pagehead">
-        <div><h1>Bookings.</h1><p class="sub">Every booking, private by design.</p></div>
-        <button class="btn-clay btn headaction" onclick="openSheet()">+ New booking</button>
+        <div><h1>Book.</h1><p class="sub">Direct bookings for your guests.</p></div>
+        <button class="bellbtn" onclick="openNotifs()" aria-label="Notifications"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2218" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5.5a6 6 0 1 0-12 0V16l-1.8 2.5h15.6z"/><path d="M10 21a2.2 2.2 0 0 0 4 0"/></svg><span class="bdot"></span></button>
       </header>
+      <div class="listcard engine">
+        <label>Property</label>
+        <select id="bProp"><option>Aeon Towers · Studio</option><option>Aeon Towers · 1BR</option><option>Seawind · 2BR</option><option>Ivory Residence · 1BR</option></select>
+        <div class="row2">
+          <div><label>Check-in</label><input id="bIn" type="date"></div>
+          <div><label>Check-out</label><input id="bOut" type="date"></div>
+        </div>
+        <label>Guests</label>
+        <input id="bGuests" type="number" value="2" min="1" max="8">
+        <button class="btn btn-navy" onclick="getQuote()">Check availability</button>
+        <div id="quote" class="quote hidden">
+          <div class="qtotals"><span class="tt" id="qTotal">₱9,600</span><span class="meta" id="qMeta">3 nights · ₱3,200/night</span></div>
+          <span class="earnchip">You earn · <span id="qEarn">₱240</span></span>
+          <button class="btn btn-clay" onclick="confirmBooking()">Confirm booking</button>
+          <div class="sheet-privacy" style="margin-top:0">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="10.5" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            Guest details are taken at confirmation — kept by Bleuspace only.
+          </div>
+        </div>
+      </div>
       <div class="confirm-card">
         <div class="cc-top">
           <div class="cc-badge">
@@ -449,7 +500,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
     <section class="page" id="page-network"><div class="pagewrap">
       <header class="pagehead">
         <div><h1>Network.</h1><p class="sub">Your circle, growing.</p></div>
-        <img class="pagemark" src="assets/logo/icon-navy.png" alt="">
+        <button class="bellbtn" onclick="openNotifs()" aria-label="Notifications"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2218" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5.5a6 6 0 1 0-12 0V16l-1.8 2.5h15.6z"/><path d="M10 21a2.2 2.2 0 0 0 4 0"/></svg><span class="bdot"></span></button>
       </header>
       <div class="upline">
         <span class="disc" style="background:var(--navy)">AL</span>
@@ -472,7 +523,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
     <section class="page" id="page-materials"><div class="pagewrap">
       <header class="pagehead">
         <div><h1>Materials.</h1><p class="sub">Everything you need to pitch.</p></div>
-        <img class="pagemark" src="assets/logo/icon-navy.png" alt="">
+        <button class="bellbtn" onclick="openNotifs()" aria-label="Notifications"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2218" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5.5a6 6 0 1 0-12 0V16l-1.8 2.5h15.6z"/><path d="M10 21a2.2 2.2 0 0 0 4 0"/></svg><span class="bdot"></span></button>
       </header>
       <div class="sechead"><span class="t">Guidelines.</span><span class="microlabel">Brand-approved</span></div>
       <div class="listcard">
@@ -521,7 +572,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
     <section class="page" id="page-profile"><div class="pagewrap">
       <header class="pagehead">
         <div><h1>Profile.</h1><p class="sub">Your account &amp; documents.</p></div>
-        <img class="pagemark" src="assets/logo/icon-navy.png" alt="">
+        <button class="bellbtn" onclick="openNotifs()" aria-label="Notifications"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2218" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5.5a6 6 0 1 0-12 0V16l-1.8 2.5h15.6z"/><path d="M10 21a2.2 2.2 0 0 0 4 0"/></svg><span class="bdot"></span></button>
       </header>
       <div class="identity">
         <span class="disc">MS</span>
@@ -571,29 +622,6 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 
 <!-- ======== BOOKING ENGINE SHEET ======== -->
 <div id="overlay" onclick="closeSheet()"></div>
-<div id="sheet" class="sheet" role="dialog" aria-label="New booking">
-  <h2>New booking.</h2>
-  <p class="sub">Book direct for your guest — your earning is added automatically.</p>
-  <label>Property</label>
-  <select>
-    <option>Aeon Towers · Studio</option>
-    <option>Aeon Towers · 1BR</option>
-    <option>Seawind · 2BR</option>
-    <option>Ivory Residence · 1BR</option>
-  </select>
-  <div class="row2">
-    <div><label>Check-in</label><input type="date"></div>
-    <div><label>Check-out</label><input type="date"></div>
-  </div>
-  <label>Guests</label>
-  <input type="number" value="2" min="1" max="8">
-  <button class="btn btn-clay" onclick="submitBooking()">Request to book</button>
-  <div class="sheet-privacy">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="10.5" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-    Guest details go to Bleuspace only — never stored here.
-  </div>
-</div>
-
 <div id="psheet" class="sheet" role="dialog" aria-label="Collect property data">
   <h2>Collect property data.</h2>
   <p class="sub">Fill what you can — it goes straight to the proposal team.</p>
@@ -620,6 +648,33 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
   <div class="sheet-privacy">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="10.5" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
     Owner details are shared with Bleuspace only.
+  </div>
+</div>
+
+<div id="nsheet" class="sheet" role="dialog" aria-label="Notifications">
+  <h2>Notifications.</h2>
+  <p class="sub">The latest on your money and your funnel.</p>
+  <div style="margin-top:14px">
+    <div class="nrow">
+      <span class="nd" style="background:rgba(153,162,134,.2)"><svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="#6E7A58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7.5l3 3 6-7"/></svg></span>
+      <div class="who"><b>Booking BSP-0058 confirmed.</b><span>+ ₱2,150 · credits to your Jul 30 payout</span></div>
+      <span class="tm">2M</span>
+    </div>
+    <div class="nrow">
+      <span class="nd" style="background:rgba(204,154,82,.2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A6A2E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h7l4 4V20a.9.9 0 0 1-.9.9H6.5a.9.9 0 0 1-.9-.9V4.4a.9.9 0 0 1 .9-.9z"/><path d="M13.5 3.5v4h4M9 12.5h6M9 16h6"/></svg></span>
+      <div class="who"><b>Proposal ready.</b><span>Camella Cerritos · House 12 — send it to your owner</span></div>
+      <span class="tm">1D</span>
+    </div>
+    <div class="nrow">
+      <span class="nd" style="background:rgba(30,78,99,.12)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E4E63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><circle cx="12" cy="12" r="2.8"/></svg></span>
+      <div class="who"><b>June payout sent.</b><span>₱42,300 to GCash ·· 1122</span></div>
+      <span class="tm">JUN 30</span>
+    </div>
+    <div class="nrow">
+      <span class="nd" style="background:rgba(188,106,71,.14)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BC6A47" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5v3.5a1 1 0 0 0 1 1H7l7.5 4V5.5L7 9.5H4.5a1 1 0 0 0-1 1z"/><path d="M18 9.5a4.2 4.2 0 0 1 0 5.5"/></svg></span>
+      <div class="who"><b>New in Materials.</b><span>July property photo pack · 48 photos</span></div>
+      <span class="tm">JUL 1</span>
+    </div>
   </div>
 </div>
 
@@ -673,9 +728,32 @@ function submitProperty(){
   closeSheet();
   toast('Sent to the proposal team · <span class="mono">PRP-0104</span>');
 }
-function submitBooking(){
-  closeSheet();
-  toast('Request sent · <span class="mono">BSP-0059</span> pending');
+function openNotifs(){
+  openSheet('nsheet');
+  document.querySelectorAll('.bdot').forEach(d=>d.classList.add('hidden'));
+}
+const RATES={'Aeon Towers · Studio':2800,'Aeon Towers · 1BR':3400,'Seawind · 2BR':4500,'Ivory Residence · 1BR':3200};
+function getQuote(){
+  const rate=RATES[document.getElementById('bProp').value]||3000;
+  const i=document.getElementById('bIn').value,o=document.getElementById('bOut').value;
+  let n=3;
+  if(i&&o){const d=(new Date(o)-new Date(i))/864e5;if(d>0)n=Math.round(d);}
+  const total=rate*n;
+  document.getElementById('qTotal').textContent='₱'+total.toLocaleString();
+  document.getElementById('qMeta').textContent=n+(n>1?' nights':' night')+' · ₱'+rate.toLocaleString()+'/night';
+  document.getElementById('qEarn').textContent='₱'+Math.round(total*0.025).toLocaleString();
+  document.getElementById('quote').classList.remove('hidden');
+}
+function confirmBooking(){
+  const earn=document.getElementById('qEarn').textContent;
+  document.querySelector('.cc-code').textContent='BSP-0059';
+  document.querySelector('.cc-line').textContent='+ '+earn+' · credits to your Jul 30 payout';
+  document.querySelector('.cc-when').textContent='JUST NOW';
+  document.getElementById('bookinglist').insertAdjacentHTML('afterbegin',
+    '<div class="brow" data-s="confirmed"><span class="code">BSP-0059</span><span class="meta">Confirmed · Jul 30 payout</span><span class="amt">+ '+earn+'</span></div>');
+  document.getElementById('quote').classList.add('hidden');
+  toast('Booked · <span class="mono">BSP-0059</span> confirmed');
+  window.scrollTo(0,0);
 }
 
 /* ---------- toast ---------- */
