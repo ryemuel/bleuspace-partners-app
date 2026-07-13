@@ -230,6 +230,16 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 .prow .who span{font-weight:400;font-size:12px;color:var(--soft)}
 
 
+.wbtn{height:46px;font-size:14px;margin-top:14px}
+.wdest{display:flex;align-items:center;justify-content:space-between;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.wdest .who b{font-weight:600;font-size:14px;display:block}
+.wdest .who span{font-family:var(--mono);font-size:11px;color:var(--soft)}
+.wdest .chg{font-weight:600;font-size:12px;color:var(--navy)}
+.wnet{font-weight:500;font-size:13px;color:var(--soft)}
+.wnet b{color:var(--ink);font-family:var(--num);font-weight:600}
+.wpower{display:flex;align-items:center;justify-content:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:16px}
+.wdone-wrap{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:18px 0 6px}
+.wdone-check{display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:rgba(153,162,134,.2);border:1px solid rgba(153,162,134,.5)}
 .bellbtn{position:relative;display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:var(--cream);border:1px solid var(--line);flex-shrink:0}
 .bdot{position:absolute;top:9px;right:10px;width:8px;height:8px;border-radius:50%;background:var(--clay)}
 .engine{border-top:2px solid var(--navy);margin-top:22px}
@@ -400,8 +410,9 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
       </div>
       <div class="cards">
         <div class="card card-payout">
-          <div class="card-top"><span class="t">Next payout.</span><span class="d">Jul 30.</span></div>
-          <div class="big">₱48,500</div>
+          <div class="card-top"><span class="t">Balance.</span><span class="d" id="balMeta">Auto-payout Jul 30.</span></div>
+          <div class="big" id="balAmt">₱48,500</div>
+          <button class="btn btn-clay wbtn" onclick="openSheet('wsheet')">Withdraw</button>
         </div>
         <button class="card tile" data-tab="bookings">
           <div class="card-top"><span class="t">Bookings.</span><span class="microlabel">Jul</span></div>
@@ -651,10 +662,43 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
   </div>
 </div>
 
+<div id="wsheet" class="sheet" role="dialog" aria-label="Withdraw">
+  <div id="wform">
+    <h2>Withdraw.</h2>
+    <p class="sub">Straight to your GCash, in minutes.</p>
+    <label>Amount · available ₱48,500</label>
+    <input id="wAmt" type="number" value="48500" min="100" max="48500" oninput="wSync()">
+    <label>To</label>
+    <div class="wdest">
+      <div class="who"><b>GCash</b><span>·· 1122 · Miguel Santos</span></div>
+      <span class="chg">Change in Profile</span>
+    </div>
+    <div class="wnet" id="wNet" style="margin-top:14px">You&rsquo;ll receive <b>₱48,485</b> · InstaPay fee ₱15</div>
+    <button class="btn btn-clay" id="wBtn" onclick="doWithdraw()">Withdraw ₱48,500</button>
+    <div class="wpower">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="#6F6150"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5z"/></svg>
+      Powered by PayMongo · rides InstaPay
+    </div>
+  </div>
+  <div id="wdone" class="hidden">
+    <div class="wdone-wrap">
+      <div class="wdone-check"><svg width="26" height="26" viewBox="0 0 14 14" fill="none" stroke="#6E7A58" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7.5l3 3 6-7"/></svg></div>
+      <h2>On its way.</h2>
+      <p class="sub" id="wDoneLine">₱48,485 → GCash ·· 1122 · arrives in minutes.</p>
+      <span style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--soft)">REF PM-7VQ2-0713</span>
+    </div>
+    <button class="btn btn-navy" style="width:100%;margin-top:18px" onclick="closeSheet()">Done</button>
+    <div class="wpower">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="#6F6150"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5z"/></svg>
+      Powered by PayMongo · rides InstaPay
+    </div>
+  </div>
+</div>
+
 <div id="nsheet" class="sheet" role="dialog" aria-label="Notifications">
   <h2>Notifications.</h2>
   <p class="sub">The latest on your money and your funnel.</p>
-  <div style="margin-top:14px">
+  <div style="margin-top:14px" id="nlist">
     <div class="nrow">
       <span class="nd" style="background:rgba(153,162,134,.2)"><svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="#6E7A58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7.5l3 3 6-7"/></svg></span>
       <div class="who"><b>Booking BSP-0058 confirmed.</b><span>+ ₱2,150 · credits to your Jul 30 payout</span></div>
@@ -754,6 +798,27 @@ function confirmBooking(){
   document.getElementById('quote').classList.add('hidden');
   toast('Booked · <span class="mono">BSP-0059</span> confirmed');
   window.scrollTo(0,0);
+}
+
+/* ---------- withdraw (PayMongo demo — UI only) ---------- */
+const FEE=15;
+function peso(n){return '₱'+n.toLocaleString()}
+function wSync(){
+  const amt=Math.max(0,parseInt(document.getElementById('wAmt').value||0));
+  document.getElementById('wBtn').textContent='Withdraw '+peso(amt);
+  document.getElementById('wNet').innerHTML='You&rsquo;ll receive <b>'+peso(Math.max(0,amt-FEE))+'</b> · InstaPay fee ₱'+FEE;
+}
+function doWithdraw(){
+  const amt=Math.max(0,parseInt(document.getElementById('wAmt').value||0));
+  const net=peso(Math.max(0,amt-FEE));
+  document.getElementById('wDoneLine').textContent=net+' → GCash ·· 1122 · arrives in minutes.';
+  document.getElementById('wform').classList.add('hidden');
+  document.getElementById('wdone').classList.remove('hidden');
+  document.getElementById('balAmt').textContent=peso(Math.max(0,48500-amt));
+  document.getElementById('balMeta').textContent='Sent today.';
+  document.getElementById('nlist').insertAdjacentHTML('afterbegin',
+    '<div class="nrow"><span class="nd" style="background:rgba(153,162,134,.2)"><svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="#6E7A58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7.5l3 3 6-7"/></svg></span><div class="who"><b>Withdrawal sent.</b><span>'+net+' → GCash ·· 1122 · REF PM-7VQ2</span></div><span class="tm">NOW</span></div>');
+  document.querySelectorAll('.bdot').forEach(d=>d.classList.remove('hidden'));
 }
 
 /* ---------- toast ---------- */
