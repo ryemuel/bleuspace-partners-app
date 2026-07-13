@@ -398,20 +398,21 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
       <div class="hero">
         <div class="kicker">This month</div>
         <div class="amount-row">
-          <span class="amount">₱48,500</span>
+          <span class="amount">₱67,500</span>
           <svg class="up" width="16" height="16" viewBox="0 0 16 16"><path d="M8 3l5.5 8h-11L8 3z" fill="#99A286"/></svg>
         </div>
         <div class="chips">
           <span class="chip">9 referral</span>
           <span class="chip">5 direct</span>
-          <span class="chip">₱6,200 up on June</span>
+          <span class="chip">1 reno</span>
+          <span class="chip">₱25,200 up on June</span>
         </div>
-        <p class="hero-note">from 14 bookings · next payout Jul 30</p>
+        <p class="hero-note">from 14 bookings + 1 reno · next payout Jul 30</p>
       </div>
       <div class="cards">
         <div class="card card-payout">
           <div class="card-top"><span class="t">Balance.</span><span class="d" id="balMeta">Auto-payout Jul 30.</span></div>
-          <div class="big" id="balAmt">₱48,500</div>
+          <div class="big" id="balAmt">₱67,500</div>
           <button class="btn btn-clay wbtn" onclick="openSheet('wsheet')">Withdraw</button>
         </div>
         <button class="card tile" data-tab="bookings">
@@ -499,7 +500,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
       <div class="listcard" id="proplist">
         <div class="prow"><div class="who"><b>Ivory Residence · Unit 1207</b><span>Submitted Jul 10 · Grace Uy</span></div><span class="fchip amber">Proposal in progress</span></div>
         <div class="prow"><div class="who"><b>Camella Cerritos · House 12</b><span>Submitted Jul 2 · Carmen Dela Peña</span></div><span class="fchip green">Proposal ready</span></div>
-        <div class="prow"><div class="who"><b>Verdon Parc · Unit 803</b><span>Submitted Jun 24 · Lea Santos</span></div><span class="fchip blue">Owner signed</span></div>
+        <div class="prow"><div class="who"><b>Verdon Parc · Unit 803</b><span>₱380k reno signed · you earn +₱19,000</span></div><span class="fchip blue">Reno signed</span></div>
       </div>
       <div class="note-line">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v.5M12 11.5V16"/></svg>
@@ -526,6 +527,10 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
         <div class="orow"><span class="disc" style="background:var(--clay)">MV</span><div class="who"><b>Marco Villanueva</b><span>OWN-2065 · May 2026</span></div><span class="units">1 live</span><span class="dot"></span></div>
         <div class="orow"><span class="disc" style="background:var(--navy)">LS</span><div class="who"><b>Lea Santos</b><span>OWN-2046 · Jun 2026</span></div><span class="units">2 live</span><span class="dot"></span></div>
         <div class="orow"><span class="disc" style="background:var(--sage)">PR</span><div class="who"><b>Paolo Reyes</b><span>OWN-2039 · Jul 2026</span></div><span class="units">Onboarding</span><span class="dot" style="background:var(--mustard)"></span></div>
+      </div>
+      <div class="note-line">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v.5M12 11.5V16"/></svg>
+        Every reno your owners sign pays you a commission — and seniors earn an override on their partners&rsquo; projects.
       </div>
       <button class="btn btn-navy" style="width:100%;margin-top:16px" onclick="toast('Invite link copied · <span class=mono>bleuspace.co/p/BSP-0042</span>')">Invite an owner</button>
     </div></section>
@@ -590,7 +595,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
         <div class="who"><b>Miguel Santos.</b><span>BSP-0042 · SINCE FEB 2026</span></div>
       </div>
       <div class="stats">
-        <div><span class="microlabel">All-time earned</span><span class="v navy num">₱212,400</span></div>
+        <div><span class="microlabel">All-time earned</span><span class="v navy num">₱231,400</span></div>
         <div><span class="microlabel">Bookings brought in</span><span class="v num">117</span></div>
       </div>
       <div class="sechead"><span class="t">Documents.</span><span class="microlabel">4 files</span></div>
@@ -666,15 +671,15 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
   <div id="wform">
     <h2>Withdraw.</h2>
     <p class="sub">Straight to your GCash, in minutes.</p>
-    <label>Amount · available ₱48,500</label>
-    <input id="wAmt" type="number" value="48500" min="100" max="48500" oninput="wSync()">
+    <label>Amount · available ₱67,500</label>
+    <input id="wAmt" type="number" value="67500" min="100" max="67500" oninput="wSync()">
     <label>To</label>
     <div class="wdest">
       <div class="who"><b>GCash</b><span>·· 1122 · Miguel Santos</span></div>
       <span class="chg">Change in Profile</span>
     </div>
-    <div class="wnet" id="wNet" style="margin-top:14px">You&rsquo;ll receive <b>₱48,485</b> · InstaPay fee ₱15</div>
-    <button class="btn btn-clay" id="wBtn" onclick="doWithdraw()">Withdraw ₱48,500</button>
+    <div class="wnet" id="wNet" style="margin-top:14px">You&rsquo;ll receive <b>₱67,485</b> · InstaPay fee ₱15</div>
+    <button class="btn btn-clay" id="wBtn" onclick="doWithdraw()">Withdraw ₱67,500</button>
     <div class="wpower">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="#6F6150"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5z"/></svg>
       Powered by PayMongo · rides InstaPay
@@ -684,7 +689,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
     <div class="wdone-wrap">
       <div class="wdone-check"><svg width="26" height="26" viewBox="0 0 14 14" fill="none" stroke="#6E7A58" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7.5l3 3 6-7"/></svg></div>
       <h2>On its way.</h2>
-      <p class="sub" id="wDoneLine">₱48,485 → GCash ·· 1122 · arrives in minutes.</p>
+      <p class="sub" id="wDoneLine">₱67,485 → GCash ·· 1122 · arrives in minutes.</p>
       <span style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--soft)">REF PM-7VQ2-0713</span>
     </div>
     <button class="btn btn-navy" style="width:100%;margin-top:18px" onclick="closeSheet()">Done</button>
@@ -708,6 +713,11 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
       <span class="nd" style="background:rgba(204,154,82,.2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A6A2E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h7l4 4V20a.9.9 0 0 1-.9.9H6.5a.9.9 0 0 1-.9-.9V4.4a.9.9 0 0 1 .9-.9z"/><path d="M13.5 3.5v4h4M9 12.5h6M9 16h6"/></svg></span>
       <div class="who"><b>Proposal ready.</b><span>Camella Cerritos · House 12 — send it to your owner</span></div>
       <span class="tm">1D</span>
+    </div>
+    <div class="nrow">
+      <span class="nd" style="background:rgba(188,106,71,.14)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BC6A47" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 20.5V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v15.5"/><path d="M15.5 9.5h3a1 1 0 0 1 1 1v10"/><path d="M3.5 20.5h17"/><path d="M8.5 7.5h2M8.5 11h2M8.5 14.5h2"/></svg></span>
+      <div class="who"><b>Reno commission credited.</b><span>+ ₱19,000 · Verdon Parc · Unit 803 · credits Jul 30</span></div>
+      <span class="tm">2D</span>
     </div>
     <div class="nrow">
       <span class="nd" style="background:rgba(30,78,99,.12)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E4E63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><circle cx="12" cy="12" r="2.8"/></svg></span>
@@ -814,7 +824,7 @@ function doWithdraw(){
   document.getElementById('wDoneLine').textContent=net+' → GCash ·· 1122 · arrives in minutes.';
   document.getElementById('wform').classList.add('hidden');
   document.getElementById('wdone').classList.remove('hidden');
-  document.getElementById('balAmt').textContent=peso(Math.max(0,48500-amt));
+  document.getElementById('balAmt').textContent=peso(Math.max(0,67500-amt));
   document.getElementById('balMeta').textContent='Sent today.';
   document.getElementById('nlist').insertAdjacentHTML('afterbegin',
     '<div class="nrow"><span class="nd" style="background:rgba(153,162,134,.2)"><svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="#6E7A58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7.5l3 3 6-7"/></svg></span><div class="who"><b>Withdrawal sent.</b><span>'+net+' → GCash ·· 1122 · REF PM-7VQ2</span></div><span class="tm">NOW</span></div>');
