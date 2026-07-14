@@ -69,6 +69,12 @@ img{max-width:100%}
 .btn-navy{background:var(--navy);color:#EAF0F4}
 .btn-navy:hover{background:var(--navy-dk)}
 .btn:active{transform:scale(.985)}
+.ordiv{display:flex;align-items:center;gap:12px;margin:6px 0 0}
+.ordiv span{flex:1;height:1px;background:var(--line)}
+.ordiv b{font-weight:600;font-size:10.5px;color:var(--soft);text-transform:uppercase;letter-spacing:.12em}
+.btn.social{background:var(--cream);border:1px solid var(--line);color:var(--ink);font-weight:600;font-size:15px}
+.avwrap{position:relative;flex-shrink:0}
+.avcam{position:absolute;right:-3px;bottom:-3px;width:23px;height:23px;border-radius:50%;background:var(--cream);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
 .login-forgot{font-weight:600;font-size:13px;color:var(--navy);margin:14px auto 0}
 .login-foot{border-top:1px solid var(--line);padding-top:18px;text-align:center}
 .login-foot span{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
@@ -392,6 +398,9 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
       <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12s-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg>
     </div>
     <button class="btn btn-clay" onclick="signIn()">Sign in</button>
+    <div class="ordiv"><span></span><b>or</b><span></span></div>
+    <button class="btn social" onclick="signIn()"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.9-.1-1.5-.3-2.3H12v4.3h6.5c-.1 1.1-.8 2.7-2.4 3.8l-.02.15 3.5 2.7.24.02c2.2-2 3.5-5 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1 7.9-2.9l-3.8-2.9c-1 .7-2.4 1.2-4.1 1.2-3.2 0-5.8-2.1-6.8-5l-.14.01-3.7 2.8-.05.13C3.3 21.3 7.3 24 12 24z"/><path fill="#FBBC05" d="M5.2 14.4c-.25-.75-.4-1.55-.4-2.4s.15-1.65.4-2.4l-.01-.16-3.7-2.9-.12.06C.5 8.2 0 10 0 12s.5 3.8 1.4 5.4l3.8-3z"/><path fill="#EB4335" d="M12 4.6c2.3 0 3.8 1 4.7 1.8l3.4-3.3C18 1.2 15.2 0 12 0 7.3 0 3.3 2.7 1.4 6.6l3.8 3c1-2.9 3.6-5 6.8-5z"/></svg>Continue with Google</button>
+    <button class="btn social" onclick="signIn()"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877F2"/><path fill="#fff" d="M16.7 15.4l.53-3.4h-3.28V9.75c0-.93.46-1.84 1.93-1.84h1.5V5.02s-1.36-.23-2.66-.23c-2.71 0-4.49 1.64-4.49 4.61V12H7.22v3.4h3.01V24a12 12 0 0 0 3.72 0v-8.6h2.76z"/></svg>Continue with Facebook</button>
     <button class="login-forgot">Forgot password?</button>
   </div>
   <div class="sp2"></div>
@@ -642,12 +651,35 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
         <button class="bellbtn" onclick="openNotifs()" aria-label="Notifications"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2218" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5.5a6 6 0 1 0-12 0V16l-1.8 2.5h15.6z"/><path d="M10 21a2.2 2.2 0 0 0 4 0"/></svg><span class="bdot"></span></button>
       </header>
       <div class="identity">
-        <span class="disc">MS</span>
+        <span class="avwrap"><span class="disc">MS</span><span class="avcam"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h3l1.5-2h6l1.5 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg></span></span>
         <div class="who"><b>Miguel Santos.</b><span>BSP-0042 · SINCE FEB 2026</span></div>
       </div>
       <div class="stats">
         <div><span class="microlabel">All-time earned</span><span class="v navy num">₱231,400</span></div>
         <div><span class="microlabel">Bookings brought in</span><span class="v num">117</span></div>
+      </div>
+      <div class="sechead"><span class="t">Personal details.</span><span class="microlabel">For verification</span></div>
+      <div class="listcard">
+        <div class="drow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4E63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5h16M5 20.5v-7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7M12 11.5v-3M12 5.5a1.2 1.2 0 0 0 1.2-1.2C13.2 3 12 2 12 2s-1.2 1-1.2 2.3A1.2 1.2 0 0 0 12 5.5z"/></svg>
+          <div class="who"><b>Birthdate</b><span>March 14, 1991 · 35 years old</span></div>
+          <span class="linkish">Edit</span>
+        </div>
+        <div class="drow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4E63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <div class="who"><b>Address</b><span>Lot 4, Mabini St., Poblacion, Davao City</span></div>
+          <span class="linkish">Edit</span>
+        </div>
+        <div class="drow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4E63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5 7.5 20.5M16.5 3.5 15 20.5M4.5 8.5h16M3.5 15.5h16"/></svg>
+          <div class="who"><b>TIN</b><span style="font-family:var(--mono);letter-spacing:.04em">412-885-903-000</span></div>
+          <span class="signed">On file</span>
+        </div>
+        <div class="drow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4E63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16.5c.4-1.6 1.6-2.5 3-2.5s2.6.9 3 2.5M14.5 9.5h4M14.5 13h4"/></svg>
+          <div class="who"><b>Valid ID</b><span>Driver&rsquo;s License · submitted Feb 2026</span></div>
+          <span class="signed">Verified</span>
+        </div>
       </div>
       <div class="sechead"><span class="t">Documents.</span><span class="microlabel">4 files</span></div>
       <div class="listcard">
