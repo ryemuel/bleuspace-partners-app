@@ -142,14 +142,14 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 .upline .who b{font-weight:600;font-size:15px;display:block}
 .upline .who span{font-family:var(--mono);font-size:11px;letter-spacing:.07em;color:rgba(178,195,214,.8)}
 .upline .role{font-family:var(--num);font-weight:600;font-size:10px;background:rgba(178,195,214,.16);border:1px solid rgba(178,195,214,.35);color:var(--mist);padding:5px 10px;border-radius:100px;flex-shrink:0}
-.oitem{border-top:1px solid var(--line)}
-.oitem:first-of-type{border-top:none}
+.oitem,.fitem{border-top:1px solid var(--line)}
+.oitem:first-of-type,.fitem:first-of-type{border-top:none}
 .orow{display:flex;align-items:center;gap:13px;padding:13px 0;width:100%;text-align:left}
 .orow .who span{overflow:hidden;text-overflow:ellipsis}
 .chev{flex-shrink:0;transition:transform .3s var(--ease)}
-.oitem.open .chev{transform:rotate(90deg)}
+.oitem.open .chev,.fitem.open .chev{transform:rotate(90deg)}
 .oprops{display:none;padding:0 0 14px 59px}
-.oitem.open .oprops{display:block}
+.oitem.open .oprops,.fitem.open .oprops{display:block}
 .pprow{padding:7px 0}
 .pprow b{display:block;font-weight:600;font-size:13.5px}
 .pprow span{font-weight:400;font-size:12px;color:var(--soft)}
@@ -232,6 +232,17 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 .fchip{font-family:var(--num);font-weight:600;font-size:10px;padding:4px 10px;border-radius:100px;flex-shrink:0;white-space:nowrap}
 .fchip.amber{background:rgba(204,154,82,.18);border:1px solid rgba(204,154,82,.5);color:#8A6A2E}
 .fchip.green{background:rgba(153,162,134,.16);border:1px solid rgba(153,162,134,.45);color:#6E7A58}
+.fchip.alert{background:rgba(188,106,71,.15);border:1px solid rgba(188,106,71,.45);color:var(--clay-dk)}
+.ftrack{padding:2px 0 14px 3px}
+.step{display:flex;align-items:flex-start;gap:10px;padding:4px 0}
+.sdot{width:10px;height:10px;border-radius:50%;margin-top:4px;flex-shrink:0}
+.sdot.done{background:var(--sage)}
+.sdot.cur{background:var(--clay)}
+.sdot.todo{background:transparent;border:1.5px solid rgba(43,36,30,.25)}
+.step .sl{font-weight:500;font-size:12.5px;color:var(--soft)}
+.step.cur .sl{font-weight:700;font-size:13px;color:var(--ink)}
+.snote{display:block;font-weight:400;font-size:11.5px;color:var(--soft);margin-top:1px}
+.snote.alert{color:var(--clay-dk);font-weight:600}
 .fchip.blue{background:rgba(30,78,99,.1);border:1px solid rgba(30,78,99,.3);color:var(--navy)}
 .filebox{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:16px;border:1.5px dashed rgba(43,36,30,.3);border-radius:12px;color:var(--soft);font-weight:500;font-size:13px}
 .prow{display:flex;align-items:center;gap:13px;padding:14px 0;border-top:1px solid var(--line)}
@@ -533,11 +544,13 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
         <div><h1>Properties.</h1><p class="sub">Collect once — proposal-ready.</p></div>
         <button class="btn btn-clay headaction" onclick="openSheet('psheet')">+ Collect data</button>
       </header>
-      <div class="sechead"><span class="t">Your funnel.</span><span class="microlabel">3 in motion</span></div>
+      <div class="sechead"><span class="t">Your funnel.</span><span class="microlabel">4 in motion</span></div>
+      <span class="hint" style="margin-top:6px">Tap a property to see every stage.</span>
       <div class="listcard" id="proplist">
-        <div class="prow"><div class="who"><b>Ivory Residence · Unit 1207</b><span>Submitted Jul 10 · Grace Uy</span></div><span class="fchip amber">Proposal in progress</span></div>
-        <div class="prow"><div class="who"><b>Camella Cerritos · House 12</b><span>Submitted Jul 2 · Carmen Dela Peña</span></div><span class="fchip green">Proposal ready</span></div>
-        <div class="prow"><div class="who"><b>Verdon Parc · Unit 803</b><span>₱380k reno signed · you earn +₱19,000</span></div><span class="fchip blue">Reno signed</span></div>
+        <div class="fitem" data-stage="0" data-note="We check completeness first." data-flag="Add bathroom + damage close-up photos, then resubmit."><button class="orow frow" onclick="oTog(this)"><div class="who"><b>Abreeza Place · Unit 1509</b><span>Submitted Jul 12 · Grace Uy</span></div><span class="fchip alert">Needs more data</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button><div class="oprops ftrack"></div></div>
+        <div class="fitem" data-stage="2" data-note="Drafting the improvement plan from your data."><button class="orow frow" onclick="oTog(this)"><div class="who"><b>Ivory Residence · Unit 1207</b><span>Submitted Jul 10 · Grace Uy</span></div><span class="fchip amber">Proposal in progress</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button><div class="oprops ftrack"></div></div>
+        <div class="fitem" data-stage="3" data-note="₱240k refresh · you earn ₱12,000 when the owner signs."><button class="orow frow" onclick="oTog(this)"><div class="who"><b>Camella Cerritos · House 12</b><span>Submitted Jul 2 · Carmen Dela Peña</span></div><span class="fchip green">Proposal ready</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button><div class="oprops ftrack"></div></div>
+        <div class="fitem" data-stage="6" data-note="Crew on site · your ₱19,000 credits Jul 30."><button class="orow frow" onclick="oTog(this)"><div class="who"><b>Verdon Parc · Unit 803</b><span>Submitted Jun 24 · Lea Santos</span></div><span class="fchip blue">Renovation</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button><div class="oprops ftrack"></div></div>
       </div>
       <div class="note-line">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v.5M12 11.5V16"/></svg>
@@ -931,6 +944,19 @@ function pGo(d){
   pIdx=Math.min(7,Math.max(0,pIdx+d));
   pShow();
 }
+const STAGES=['In review','Reaching the owner','Proposal in progress','Proposal ready','Sent to owner','Owner signed','Renovation','Onboarding','Live'];
+const CHEV_SVG='<svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6F6150" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>';
+function buildTrack(f){
+  const cur=parseInt(f.dataset.stage), note=f.dataset.note||'', flag=f.dataset.flag||'';
+  let h='';
+  if(flag) h+='<div class="step cur"><span class="sdot cur"></span><div><span class="sl" style="color:var(--clay-dk);font-weight:700">Needs more data</span><span class="snote alert">'+flag+'</span></div></div>';
+  STAGES.forEach((st,i)=>{
+    const cls=i<cur?'done':(i===cur?'cur':'todo');
+    h+='<div class="step '+cls+'"><span class="sdot '+cls+'"></span><div><span class="sl">'+st+'</span>'+(i===cur&&note&&!flag?'<span class="snote">'+note+'</span>':'')+'</div></div>';
+  });
+  f.querySelector('.ftrack').innerHTML=h;
+}
+document.querySelectorAll('.fitem').forEach(buildTrack);
 function oTog(b){b.parentElement.classList.toggle('open')}
 function pShot(el){
   el.classList.toggle('added');
@@ -941,7 +967,8 @@ function submitProperty(){
   const bldg=sel.startsWith('Other')?'New address':sel;
   const unit=document.getElementById('pUnit').value.trim()||'Unit 1201';
   document.getElementById('proplist').insertAdjacentHTML('afterbegin',
-    '<div class="prow"><div class="who"><b>'+bldg+' · '+unit+'</b><span>Submitted today · screened by you</span></div><span class="fchip amber">In review</span></div>');
+    '<div class="fitem" data-stage="0" data-note="We check completeness first — expect an update within a day."><button class="orow frow" onclick="oTog(this)"><div class="who"><b>'+bldg+' · '+unit+'</b><span>Submitted today · screened by you</span></div><span class="fchip amber">In review</span>'+CHEV_SVG+'</button><div class="oprops ftrack"></div></div>');
+  buildTrack(document.getElementById('proplist').firstElementChild);
   closeSheet();
   toast('Sent to the proposal team · <span class="mono">PRP-0104</span>');
   pIdx=0;pShow();
