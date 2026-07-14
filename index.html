@@ -48,8 +48,8 @@ img{max-width:100%}
 .hidden{display:none!important}
 
 /* ---------- kickers & labels ---------- */
-.kicker{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--clay)}
-.microlabel{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.kicker{font-family:var(--sans);font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay)}
+.microlabel{font-family:var(--sans);font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
 
 /* ---------- LOGIN ---------- */
 #login{display:flex;flex-direction:column;min-height:100dvh;padding:32px 28px 36px;max-width:430px;margin:0 auto}
@@ -71,7 +71,7 @@ img{max-width:100%}
 .btn:active{transform:scale(.985)}
 .login-forgot{font-weight:600;font-size:13px;color:var(--navy);margin:14px auto 0}
 .login-foot{border-top:1px solid var(--line);padding-top:18px;text-align:center}
-.login-foot span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.login-foot span{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
 
 /* ---------- APP SHELL ---------- */
 #app{min-height:100dvh}
@@ -125,7 +125,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 .cc-top{display:flex;justify-content:space-between;align-items:center}
 .cc-badge{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14px}
 .cc-check{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(153,162,134,.22);border:1px solid rgba(153,162,134,.5)}
-.cc-when{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:rgba(178,195,214,.75)}
+.cc-when{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.1em;color:rgba(178,195,214,.75);text-transform:uppercase}
 .cc-code{font-family:var(--mono);font-weight:500;font-size:clamp(34px,11vw,44px);letter-spacing:.02em;margin-top:16px}
 .cc-line{font-weight:500;font-size:14px;color:rgba(178,195,214,.85);margin-top:8px}
 .cc-divider{height:1px;background:rgba(239,228,210,.14);margin:18px 0 14px}
@@ -203,7 +203,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 .sheet.open{transform:none}
 .sheet h2{font-weight:700;font-size:19px}
 .sheet .sub{font-weight:400;font-size:13px;color:var(--soft);margin-top:3px}
-.sheet label,.engine label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin:16px 0 6px}
+.sheet label,.engine label{display:block;font-family:var(--sans);font-weight:600;font-size:13.5px;color:var(--ink);margin:18px 0 7px}
 .sheet select,.sheet input,.engine select,.engine input{width:100%;height:52px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:0 14px;font-family:var(--sans);font-weight:500;font-size:15px;color:var(--ink)}
 .sheet .row2,.engine .row2{display:flex;gap:10px}
 .sheet .row2>div,.engine .row2>div{flex:1}
@@ -237,15 +237,22 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 .wdest .chg{font-weight:600;font-size:12px;color:var(--navy)}
 .wnet{font-weight:500;font-size:13px;color:var(--soft)}
 .wnet b{color:var(--ink);font-family:var(--num);font-weight:600}
-.wpower{display:flex;align-items:center;justify-content:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:16px}
+.wpower{display:flex;align-items:center;justify-content:center;gap:7px;font-family:var(--sans);font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:16px}
 .wdone-wrap{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:18px 0 6px}
 .wdone-check{display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:rgba(153,162,134,.2);border:1px solid rgba(153,162,134,.5)}
+.hint{display:block;font-weight:400;font-size:12px;line-height:1.45;color:var(--soft);margin:-2px 0 8px}
+.irow{padding:13px 0;border-top:1px solid var(--line)}
+.irow:first-of-type{border-top:none}
+.irow-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.irow-top b{font-weight:600;font-size:14.5px}
+.photobtn{display:flex;align-items:center;gap:6px;padding:8px 13px;border:1.5px dashed rgba(43,36,30,.3);border-radius:100px;font-weight:600;font-size:12px;color:var(--soft)}
+.photobtn.added{border-style:solid;border-color:rgba(153,162,134,.65);background:rgba(153,162,134,.1);color:#6E7A58}
 .pstep{display:none}
 .pstep.on{display:block}
 .pbar{height:4px;background:rgba(46,34,24,.08);border-radius:100px;margin-top:16px;overflow:hidden}
-.pbar i{display:block;height:100%;width:16.7%;background:var(--clay);border-radius:100px;transition:width .35s var(--ease)}
+.pbar i{display:block;height:100%;width:14.3%;background:var(--clay);border-radius:100px;transition:width .35s var(--ease)}
 .seg.sm{margin-top:8px;padding:4px}
-.seg.sm button{padding:8px 4px;font-size:11.5px}
+.seg.sm button{padding:10px 4px;font-size:12.5px}
 .wizbtns{display:flex;gap:10px;margin-top:22px}
 .wizbtns .back{padding:0 18px;height:52px;border:1px solid rgba(46,34,24,.28);border-radius:12px;font-weight:600;font-size:14px;color:var(--ink)}
 .wizbtns .btn{flex:1;height:52px;margin-top:0}
@@ -277,7 +284,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 .nrow .who{flex:1;min-width:0}
 .nrow .who b{font-weight:600;font-size:13.5px;display:block}
 .nrow .who span{font-weight:400;font-size:12px;color:var(--soft)}
-.nrow .tm{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--soft);flex-shrink:0;padding-top:2px}
+.nrow .tm{font-family:var(--sans);font-weight:600;font-size:9.5px;letter-spacing:.08em;color:var(--soft);flex-shrink:0;padding-top:2px;text-transform:uppercase}
 
 /* ============ TABLET (rail) ============ */
 @media (min-width:760px){
@@ -661,23 +668,29 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
   <h2>Collect property data.</h2>
   <p class="sub">Screen the owner, then the unit — straight to the proposal team.</p>
   <div class="pbar"><i id="pFill"></i></div>
-  <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-top:10px" id="pKick">Step 1 of 6 · The owner</div>
+  <div style="font-family:var(--sans);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-top:10px" id="pKick">Step 1 of 7 · The owner</div>
 
   <div class="pstep on">
-    <label>Owner name</label>
+    <label>Owner&rsquo;s name</label>
+    <span class="hint">Who you&rsquo;re screening — first and last name.</span>
     <input id="pOwner" type="text" placeholder="Full name">
     <label>Do they understand what Bleuspace does?</label>
+    <span class="hint">Have you explained how we operate the unit and share the earnings?</span>
     <div class="seg sm"><button class="on">Yes</button><button>Somewhat</button><button>Not yet</button></div>
-    <label>Open to re-investing in the unit?</label>
+    <label>Are they open to re-investing in the unit?</label>
+    <span class="hint">Repairs and upgrades to reach guest-ready standard.</span>
     <div class="seg sm"><button class="on">Yes</button><button>Maybe</button><button>No</button></div>
-    <label>Fit with how we operate?</label>
+    <label>Will they fit how we operate?</label>
+    <span class="hint">Your honest read — we only onboard owners we can serve well.</span>
     <div class="seg sm"><button class="on">Good fit</button><button>Unsure</button><button>Poor fit</button></div>
   </div>
 
   <div class="pstep">
-    <label>Developer · optional — leave if unsure</label>
+    <label>Developer</label>
+    <span class="hint">Optional — skip if unsure, we can find this later.</span>
     <select id="pDev"><option>Not sure</option><option>Ayala Land</option><option>DMCI Homes</option><option>Vista Land · Camella</option><option>Filinvest</option><option>Robinsons Land</option><option>Cebu Landmasters</option><option>Other</option></select>
-    <label>Building / address · pre-set Davao list</label>
+    <label>Building / address</label>
+    <span class="hint">Pick from the Davao list — or choose Other and note it in remarks.</span>
     <select id="pBldg"><option>Aeon Towers</option><option>Abreeza Place</option><option>Avida Towers</option><option>Ivory Residence</option><option>Verdon Parc</option><option>Camella Cerritos</option><option>Magallanes Residences</option><option>Other — note in remarks</option></select>
     <div class="row2">
       <div><label>Unit number</label><input id="pUnit" type="text" placeholder="e.g. Unit 1201"></div>
@@ -685,45 +698,64 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
     </div>
     <label>Type</label>
     <select id="pType"><option>Studio</option><option>1BR</option><option>2BR</option><option>3BR</option><option>House</option></select>
-    <label>Registered owner · full name</label>
-    <input id="pOwnerFull" type="text" placeholder="As on the title / deed">
-    <label>Bleuspace property ID · optional, existing owners</label>
+    <label>Registered owner&rsquo;s full name</label>
+    <span class="hint">As written on the title or deed.</span>
+    <input id="pOwnerFull" type="text" placeholder="Full legal name">
+    <label>Bleuspace property ID</label>
+    <span class="hint">Only if they&rsquo;re already an owner with us — otherwise skip.</span>
     <input id="pPropId" type="text" placeholder="e.g. BSP-P-0231">
   </div>
 
   <div class="pstep">
-    <label>Furnishing</label>
+    <label>How is it furnished?</label>
     <select id="pFurn"><option>Bare</option><option>Semi-furnished</option><option>Fully furnished</option><option>Furnished · deteriorating</option></select>
     <label>Condition — honestly</label>
+    <span class="hint">What a guest would say on arrival, not what the owner says.</span>
     <div class="seg sm"><button>Excellent</button><button class="on">Good</button><button>Worn</button><button>Needs work</button></div>
-    <label>Would guests pay ₱5,000/night for it today?</label>
+    <label>Would guests pay ₱5,000 a night for it today?</label>
+    <span class="hint">Gut check against the best units in the building.</span>
     <div class="seg sm"><button>Yes</button><button class="on">Close</button><button>Not yet</button></div>
-    <label>Remarks · damage explained honestly</label>
-    <textarea id="pNotes" placeholder="Cracks, leaks, stains, broken items, smells — the team plans repairs from this."></textarea>
+    <label>Remarks</label>
+    <span class="hint">Explain any damage honestly — the team plans repairs from this.</span>
+    <textarea id="pNotes" placeholder="Cracks, leaks, stains, broken items, smells."></textarea>
   </div>
 
   <div class="pstep">
-    <label>Willing to repair / re-invest now?</label>
+    <label>Willing to repair or re-invest now?</label>
     <div class="seg sm"><button class="on">Yes</button><button>Needs convincing</button><button>No</button></div>
     <label>Do they see the value of upgrading?</label>
     <div class="seg sm"><button class="on">Yes</button><button>Somewhat</button><button>No</button></div>
-    <label>Spending threshold</label>
+    <label>How much can they spend on the unit?</label>
+    <span class="hint">A rough number is fine — it shapes the proposal.</span>
     <select id="pBudget"><option>Up to ₱50k</option><option>₱50k – ₱150k</option><option selected>₱150k – ₱300k</option><option>₱300k+</option><option>Hasn&rsquo;t said</option></select>
   </div>
 
   <div class="pstep">
-    <label>Appliance audit · none / good / old / broken</label>
+    <label>Furniture</label>
+    <span class="hint">Tap the condition, then add one clear photo of each item — photos help us tell units apart.</span>
     <div>
-      <div class="arow"><b>TV</b><div class="seg sm"><button>None</button><button class="on">Good</button><button>Old</button><button>Broken</button></div></div>
-      <div class="arow"><b>Aircon</b><div class="seg sm"><button>None</button><button>Good</button><button class="on">Old</button><button>Broken</button></div></div>
-      <div class="arow"><b>Fridge</b><div class="seg sm"><button>None</button><button class="on">Good</button><button>Old</button><button>Broken</button></div></div>
-      <div class="arow"><b>Washer</b><div class="seg sm"><button class="on">None</button><button>Good</button><button>Old</button><button>Broken</button></div></div>
-      <div class="arow"><b>Heater</b><div class="seg sm"><button>None</button><button>Good</button><button>Old</button><button class="on">Broken</button></div></div>
+      <div class="irow"><div class="irow-top"><b>Bed frame</b><button class="photobtn" data-hint="Photo" onclick="pShot(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h3l1.5-2h6l1.5 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span>Photo</span></button></div><div class="seg sm"><button>None</button><button class="on">Good</button><button>Old</button><button>Broken</button></div></div>
+      <div class="irow"><div class="irow-top"><b>Mattress</b><button class="photobtn" data-hint="Photo" onclick="pShot(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h3l1.5-2h6l1.5 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span>Photo</span></button></div><div class="seg sm"><button>None</button><button>Good</button><button class="on">Old</button><button>Broken</button></div></div>
+      <div class="irow"><div class="irow-top"><b>Sofa / seating</b><button class="photobtn" data-hint="Photo" onclick="pShot(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h3l1.5-2h6l1.5 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span>Photo</span></button></div><div class="seg sm"><button>None</button><button class="on">Good</button><button>Old</button><button>Broken</button></div></div>
+      <div class="irow"><div class="irow-top"><b>Dining set</b><button class="photobtn" data-hint="Photo" onclick="pShot(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h3l1.5-2h6l1.5 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span>Photo</span></button></div><div class="seg sm"><button class="on">None</button><button>Good</button><button>Old</button><button>Broken</button></div></div>
     </div>
   </div>
 
   <div class="pstep">
-    <label>Guided photos · shoot in daylight, curtains open</label>
+    <label>Appliances &amp; electronics</label>
+    <span class="hint">Same drill — condition, then a photo of the actual item.</span>
+    <div>
+      <div class="irow"><div class="irow-top"><b>TV</b><button class="photobtn" data-hint="Photo" onclick="pShot(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h3l1.5-2h6l1.5 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span>Photo</span></button></div><div class="seg sm"><button>None</button><button class="on">Good</button><button>Old</button><button>Broken</button></div></div>
+      <div class="irow"><div class="irow-top"><b>Aircon</b><button class="photobtn" data-hint="Photo" onclick="pShot(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h3l1.5-2h6l1.5 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span>Photo</span></button></div><div class="seg sm"><button>None</button><button>Good</button><button class="on">Old</button><button>Broken</button></div></div>
+      <div class="irow"><div class="irow-top"><b>Fridge</b><button class="photobtn" data-hint="Photo" onclick="pShot(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h3l1.5-2h6l1.5 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span>Photo</span></button></div><div class="seg sm"><button>None</button><button class="on">Good</button><button>Old</button><button>Broken</button></div></div>
+      <div class="irow"><div class="irow-top"><b>Washer</b><button class="photobtn" data-hint="Photo" onclick="pShot(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h3l1.5-2h6l1.5 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span>Photo</span></button></div><div class="seg sm"><button class="on">None</button><button>Good</button><button>Old</button><button>Broken</button></div></div>
+      <div class="irow"><div class="irow-top"><b>Water heater</b><button class="photobtn" data-hint="Photo" onclick="pShot(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h3l1.5-2h6l1.5 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span>Photo</span></button></div><div class="seg sm"><button>None</button><button>Good</button><button>Old</button><button class="on">Broken</button></div></div>
+    </div>
+  </div>
+
+  <div class="pstep">
+    <label>Room photos</label>
+    <span class="hint">Shoot in daylight, curtains open — tap each card when the shot is done.</span>
     <div class="pgrid">
       <button class="ptile" data-hint="From the door — whole room" onclick="pShot(this)"><b>Living area</b><span>From the door — whole room</span></button>
       <button class="ptile" data-hint="Corner angle — bed + window" onclick="pShot(this)"><b>Bedroom</b><span>Corner angle — bed + window</span></button>
@@ -856,17 +888,17 @@ document.querySelectorAll('.seg').forEach(g=>{
 function openSheet(id){document.getElementById('overlay').classList.add('open');document.getElementById(id||'sheet').classList.add('open')}
 function closeSheet(){document.getElementById('overlay').classList.remove('open');document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('open'))}
 let pIdx=0;
-const PKICKS=['The owner','The property','Condition','Re-investment',"What's inside",'Photos'];
+const PKICKS=['The owner','The property','Condition','Re-investment','Furniture','Appliances','Photos'];
 function pShow(){
   document.querySelectorAll('.pstep').forEach((el,i)=>el.classList.toggle('on',i===pIdx));
-  document.getElementById('pKick').textContent='Step '+(pIdx+1)+' of 6 · '+PKICKS[pIdx];
-  document.getElementById('pFill').style.width=((pIdx+1)/6*100)+'%';
+  document.getElementById('pKick').textContent='Step '+(pIdx+1)+' of 7 · '+PKICKS[pIdx];
+  document.getElementById('pFill').style.width=((pIdx+1)/7*100)+'%';
   document.getElementById('pBack').style.visibility=pIdx?'visible':'hidden';
-  document.getElementById('pNext').textContent=pIdx===5?'Send to proposal team':'Next';
+  document.getElementById('pNext').textContent=pIdx===6?'Send to proposal team':'Next';
 }
 function pGo(d){
-  if(pIdx===5&&d===1){submitProperty();return;}
-  pIdx=Math.min(5,Math.max(0,pIdx+d));
+  if(pIdx===6&&d===1){submitProperty();return;}
+  pIdx=Math.min(6,Math.max(0,pIdx+d));
   pShow();
 }
 function pShot(el){
