@@ -261,7 +261,7 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
 .pstep{display:none}
 .pstep.on{display:block}
 .pbar{height:4px;background:rgba(46,34,24,.08);border-radius:100px;margin-top:16px;overflow:hidden}
-.pbar i{display:block;height:100%;width:14.3%;background:var(--clay);border-radius:100px;transition:width .35s var(--ease)}
+.pbar i{display:block;height:100%;width:12.5%;background:var(--clay);border-radius:100px;transition:width .35s var(--ease)}
 .seg.sm{margin-top:8px;padding:4px}
 .seg.sm button{padding:10px 4px;font-size:12.5px}
 .wizbtns{display:flex;gap:10px;margin-top:22px}
@@ -680,12 +680,30 @@ main{padding:26px 22px 110px;max-width:430px;margin:0 auto}
   <h2>Collect property data.</h2>
   <p class="sub">Screen the owner, then the unit — straight to the proposal team.</p>
   <div class="pbar"><i id="pFill"></i></div>
-  <div style="font-family:var(--sans);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-top:10px" id="pKick">Step 1 of 7 · The owner</div>
+  <div style="font-family:var(--sans);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-top:10px" id="pKick">Step 1 of 8 · The owner</div>
 
   <div class="pstep on">
     <label>Owner&rsquo;s name</label>
     <span class="hint">Who you&rsquo;re screening — first and last name.</span>
     <input id="pOwner" type="text" placeholder="Full name">
+    <label>Occupation</label>
+    <span class="hint">What they do for a living.</span>
+    <select id="pOcc"><option>OFW</option><option>Business owner</option><option>Private employee</option><option>Government employee</option><option>Professional · doctor, lawyer, etc.</option><option>Retired</option><option>Other</option></select>
+    <label>Where do they live?</label>
+    <span class="hint">City — or country if they&rsquo;re abroad.</span>
+    <input id="pHome" type="text" placeholder="e.g. Davao City · or Dubai, UAE">
+    <label>Monthly income range</label>
+    <span class="hint">A range is enough — it tells us their capacity.</span>
+    <select id="pIncome"><option>Below ₱50k</option><option selected>₱50k – ₱100k</option><option>₱100k – ₱250k</option><option>₱250k+</option><option>Prefer not to say</option></select>
+  </div>
+
+  <div class="pstep">
+    <label>Why did they buy the property?</label>
+    <span class="hint">The original reason shapes how they&rsquo;ll treat it.</span>
+    <select id="pWhy"><option selected>Pure investment</option><option>Retirement home someday</option><option>Family use · sometimes</option><option>Inherited</option><option>Undecided</option></select>
+    <label>Expected income with Bleuspace operating it?</label>
+    <span class="hint">The number in their head — we check it against reality.</span>
+    <select id="pExpect"><option>Below ₱15k / month</option><option selected>₱15k – ₱25k / month</option><option>₱25k – ₱40k / month</option><option>₱40k+ / month</option><option>No number in mind</option></select>
     <label>Do they understand what Bleuspace does?</label>
     <span class="hint">Have you explained how we operate the unit and share the earnings?</span>
     <div class="seg sm"><button class="on">Yes</button><button>Somewhat</button><button>Not yet</button></div>
@@ -900,17 +918,17 @@ document.querySelectorAll('.seg').forEach(g=>{
 function openSheet(id){document.getElementById('overlay').classList.add('open');document.getElementById(id||'sheet').classList.add('open')}
 function closeSheet(){document.getElementById('overlay').classList.remove('open');document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('open'))}
 let pIdx=0;
-const PKICKS=['The owner','The property','Condition','Re-investment','Furniture','Appliances','Photos'];
+const PKICKS=['The owner','Their intent','The property','Condition','Re-investment','Furniture','Appliances','Photos'];
 function pShow(){
   document.querySelectorAll('.pstep').forEach((el,i)=>el.classList.toggle('on',i===pIdx));
-  document.getElementById('pKick').textContent='Step '+(pIdx+1)+' of 7 · '+PKICKS[pIdx];
-  document.getElementById('pFill').style.width=((pIdx+1)/7*100)+'%';
+  document.getElementById('pKick').textContent='Step '+(pIdx+1)+' of 8 · '+PKICKS[pIdx];
+  document.getElementById('pFill').style.width=((pIdx+1)/8*100)+'%';
   document.getElementById('pBack').style.visibility=pIdx?'visible':'hidden';
-  document.getElementById('pNext').textContent=pIdx===6?'Send to proposal team':'Next';
+  document.getElementById('pNext').textContent=pIdx===7?'Send to proposal team':'Next';
 }
 function pGo(d){
-  if(pIdx===6&&d===1){submitProperty();return;}
-  pIdx=Math.min(6,Math.max(0,pIdx+d));
+  if(pIdx===7&&d===1){submitProperty();return;}
+  pIdx=Math.min(7,Math.max(0,pIdx+d));
   pShow();
 }
 function oTog(b){b.parentElement.classList.toggle('open')}
